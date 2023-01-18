@@ -1,3 +1,4 @@
+import { Alert } from "bootstrap";
 import { createContext, useReducer } from "react";
 
 const AppReducer = (state, action) => {
@@ -5,8 +6,9 @@ const AppReducer = (state, action) => {
         case 'ADD_EXPENSE':
         return {
             ...state,
-            expenses: [action.payload, ...state.expenses],
+            expenses: [action.payload, ...state.expenses]
         };
+        
         default: return state;
     }
 }

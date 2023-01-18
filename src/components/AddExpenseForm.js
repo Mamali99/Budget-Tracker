@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import {v4 as uuidv4} from 'uuid';
 
-export default function AddExpenseForm() {
+export default function AddExpenseForm({handleOpen}) {
   const [name, setName] = useState("");
   const [cost, setCost] = useState("");
   const {dispatch} = useContext(AppContext);
@@ -18,6 +18,9 @@ export default function AddExpenseForm() {
         type: 'ADD_EXPENSE',
         payload: expense
     })
+    setName('');
+    setCost('');
+    handleOpen()
 
   }
   return (
