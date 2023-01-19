@@ -1,17 +1,10 @@
-
-
-const Modal = ({handleClose}) => {
-
-
+const Modal = ({ handleClose }) => {
   return (
     <>
-      
-      
-        <div>
-          <div>Ausgabenposten erfolgreich hinzugefügt!</div>
-          <button onClick={handleClose}>Close</button>
-        </div>
-      
+      <div>
+        <div>Ausgabenposten erfolgreich hinzugefügt!</div>
+        <button onClick={handleClose}>Close</button>
+      </div>
     </>
   );
 };

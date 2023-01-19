@@ -2,7 +2,9 @@ import React, { useState, useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import {v4 as uuidv4} from 'uuid';
 
-export default function AddExpenseForm({handleOpen}) {
+
+
+export default function AddExpenseForm() {
   const [name, setName] = useState("");
   const [cost, setCost] = useState("");
   const {dispatch} = useContext(AppContext);
@@ -20,10 +22,11 @@ export default function AddExpenseForm({handleOpen}) {
     })
     setName('');
     setCost('');
-    handleOpen()
-
+   
+      
   }
   return (
+    
     <form onSubmit={handleSubmit}>
       <div className="row">
         <div className="col-sm">
@@ -55,5 +58,6 @@ export default function AddExpenseForm({handleOpen}) {
         </div>
       </div>
     </form>
+   
   );
 }
