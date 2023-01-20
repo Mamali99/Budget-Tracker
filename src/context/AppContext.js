@@ -1,5 +1,7 @@
-import { createContext, useReducer } from "react";
-import React from 'react';
+import { createContext, useReducer, useEffect  } from "react";
+import React from "react";
+import axios from "axios";
+
 const AppReducer = (state, action) => {
   switch (action.type) {
     case "ADD_EXPENSE":
@@ -15,29 +17,51 @@ const AppReducer = (state, action) => {
         ),
       };
     case "SET_BUDGET":
+      updateAmount(action.payload);
       return {
         ...state,
         budget: action.payload,
+      };
+    case "SET_INITIAL_STATE":
+      return {
+        ...state,
+        ...action.payload,
       };
     default:
       return state;
   }
 };
 
+const updateAmount = (newAmount) => {
+  axios
+    .put("http://localhost:8000/budget", { amount: newAmount })
+    .then((res) => {
+      console.log("Amount updated successfully");
+    })
+    .catch((err) => console.log(err));
+};
+
 const initialState = {
-  budget: 2000,
-  expenses: [
-    { id: 1, name: "Shopping", cost: 510 },
-    { id: 2, name: "Household", cost: 520 },
-    { id: 3, name: "Ensurence", cost: 20 },
-    { id: 4, name: "car service", cost: 220 },
-  ],
+  budget: 0,
+  expenses: [],
 };
 
 export const AppContext = createContext();
 
 export const AppProvider = (props) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/budget")
+      .then((res) => {
+        // Store the data in the initial state
+        let newState = { ...initialState };
+        newState.budget = res.data.amount;
+        newState.expenses = res.data.expenses;
+        dispatch({ type: "SET_INITIAL_STATE", payload: newState });
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <AppContext.Provider
