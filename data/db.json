@@ -1,6 +1,6 @@
 {
   "budget": {
-    "amount": "1590",
+    "amount": "2500",
     "expenses": [
       {
         "id": 1,
@@ -11,6 +11,11 @@
         "id": 2,
         "name": "Household",
         "cost": 520
+      },
+      {
+        "id": "76ce951c-3d1a-480d-88cd-d3634def8a8e",
+        "name": "car ensurence",
+        "cost": 22
       }
     ]
   }
