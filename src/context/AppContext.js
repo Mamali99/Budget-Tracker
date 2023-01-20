@@ -34,7 +34,7 @@ const AppReducer = (state, action) => {
 
 const updateAmount = (newAmount) => {
   axios
-    .put("http://localhost:8000/budget", { amount: newAmount })
+    .patch("http://localhost:8000/budget", { amount: newAmount })
     .then((res) => {
       console.log("Amount updated successfully");
     })

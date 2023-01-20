@@ -1,9 +1,17 @@
 {
-    "budget": {
-      "amount": 3000,
-      "expenses": [
-        { "id": 1, "name": "Shopping", "cost": 510 },
-        { "id": 2, "name": "Household", "cost": 520 }
-      ]
-    }
+  "budget": {
+    "amount": "1590",
+    "expenses": [
+      {
+        "id": 1,
+        "name": "Shopping",
+        "cost": 510
+      },
+      {
+        "id": 2,
+        "name": "Household",
+        "cost": 520
+      }
+    ]
   }
+}
