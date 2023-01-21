@@ -9,7 +9,7 @@ export default function ExpenseList() {
   return (
     <ul className="list-group">
       {expenses.map((expense) => (
-        <ExpenseItem id={expense.id} name={expense.name} cost={expense.cost}/>
+        <ExpenseItem id={expense.id} name={expense.name} cost={expense.cost} date={expense.date}/>
       )
         )}
     </ul>

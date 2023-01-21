@@ -5,12 +5,26 @@
       {
         "id": 1,
         "name": "Shopping",
-        "cost": 510
+        "cost": 510,
+        "date": "2023-01-14"
       },
       {
         "id": "e3daad64-c81b-43f9-9b63-2fd4a9599cf0",
         "name": "car ensurence",
-        "cost": 200
+        "cost": 200,
+        "date": "2023-01-14"
+      },
+      {
+        "id": "4e8f48a6-c289-4c9c-be47-c95c27315faa",
+        "name": "car ensurence",
+        "cost": 22,
+        "date": "2023-01-21"
+      },
+      {
+        "id": "2e5831e4-022c-46ef-a3b2-22729b8efb5b",
+        "name": "Milk",
+        "cost": 2,
+        "date": "2023-01-21"
       }
     ]
   }
