@@ -8,14 +8,9 @@
         "cost": 510
       },
       {
-        "id": 2,
-        "name": "Household",
-        "cost": 520
-      },
-      {
-        "id": "76ce951c-3d1a-480d-88cd-d3634def8a8e",
+        "id": "e3daad64-c81b-43f9-9b63-2fd4a9599cf0",
         "name": "car ensurence",
-        "cost": 22
+        "cost": 200
       }
     ]
   }

@@ -1,7 +1,6 @@
-import { createContext, useReducer, useEffect  } from "react";
+import { createContext, useReducer, useEffect } from "react";
 import React from "react";
 import axios from "axios";
-
 
 const AppReducer = (state, action) => {
   switch (action.type) {
@@ -12,6 +11,7 @@ const AppReducer = (state, action) => {
         expenses: [action.payload, ...state.expenses],
       };
     case "DELETE_EXPENSE":
+      deleteExpense(action.payload);
       return {
         ...state,
         expenses: state.expenses.filter(
@@ -43,26 +43,6 @@ const updateAmount = (newAmount) => {
     .catch((err) => console.log(err));
 };
 
-// const addExpense = (newExpense) => {
-//   var newState;
-//   axios
-//       .get("http://localhost:8000/budget")
-//       .then((res) => {
-//         // Store the data in the initial state
-//        newState = { ...initialState.expenses, newExpense };
-//        console.log('newState', newState)
-
-//       })
-//       .catch((err) => console.log(err));
-
-//    axios
-//     .patch("http://localhost:8000/budget", { expenses: newState })
-//     .then((res) => {
-//       console.log('res', res.data)
-//     })
-//     .catch((err) => console.log(err));
-    
-// }
 const addExpense = (newExpense) => {
   axios
     .get("http://localhost:8000/budget")
@@ -79,6 +59,26 @@ const addExpense = (newExpense) => {
     .catch((err) => console.log(err));
 };
 
+const deleteExpense = (id) => {
+  axios
+    .get("http://localhost:8000/budget")
+    .then((res) => {
+      let newExpenses = res.data.expenses.filter(
+        (expense) => expense.id !== id
+      );
+      axios
+        .patch("http://localhost:8000/budget", { expenses: newExpenses })
+        .then((res) => {
+          console.log("Expense deleted successfully");
+          // dispatch({
+          //   type: "SET_INITIAL_STATE",
+          //   payload: { ...state, expenses: newExpenses },
+          // });
+        })
+        .catch((err) => console.log(err));
+    })
+    .catch((err) => console.log(err));
+};
 
 const initialState = {
   budget: 0,
